@@ -35,7 +35,7 @@ Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes com
 ## Instalación y ejecución
 1. Clona este repositorio o descárgalo como archivo ZIP:
    
-git clone https://github.com/tu_usuario/facturacion.git
+git clone https://github.com/Anahi606/facturacion.git
 
 2. Accede al directorio del proyecto desde OpenXava Studio y navega a src/main/java, luego a com.yourcompany.facturacion.run y dar click derecho en facturacion.java. Finalmente darle en run as Maven Install.
    
