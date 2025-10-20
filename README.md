@@ -14,8 +14,7 @@ Permite a los usuarios:
 
 ## Tabla de Contenidos
 - Requisitos
-- Instalación
-- Ejecución del Proyecto
+- Instalación y ejecución del Proyecto
 - Estructura del Proyecto
 - Configuración de Base de Datos
 - Créditos
