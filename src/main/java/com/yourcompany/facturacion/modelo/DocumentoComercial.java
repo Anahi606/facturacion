@@ -1,9 +1,11 @@
 package com.yourcompany.facturacion.modelo;
 
+import java.math.*;
 import java.time.*;
 import java.util.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import org.openxava.annotations.*;
 import org.openxava.calculators.*;
@@ -23,7 +25,17 @@ import lombok.*;
 )
 abstract public class DocumentoComercial extends Identificable {
 
- 
+	@ElementCollection
+    @ListProperties(
+        "producto.numero, producto.descripcion, cantidad, precioPorUnidad, " +
+        "importe+[" + 
+        	"documentoComercial.porcentajeIVA," +
+        	"documentoComercial.iva," +
+        	"documentoComercial.importeTotal" +
+        "]" 
+    )	
+    private Collection<Detalle> detalles;
+	
     @Column(length=4)
     @DefaultValueCalculator(CurrentYearCalculator.class) // Año actual
     int anyo;
@@ -46,8 +58,16 @@ abstract public class DocumentoComercial extends Identificable {
     @ReferenceView("Simple") // La vista llamada 'Simple' se usará para visualizar esta referencia
     Cliente cliente;
     
-    @ElementCollection
-    @ListProperties("producto.numero, producto.descripcion, cantidad")
-    Collection<Detalle> detalles;
- 
+    @Digits(integer=2, fraction=0) // Para indicar su tamaño
+    BigDecimal porcentajeIVA;
+       
+    @ReadOnly
+    @Money
+    @Calculation("sum(detalles.importe) * porcentajeIVA / 100")
+    BigDecimal iva;
+
+    @ReadOnly
+    @Money
+    @Calculation("sum(detalles.importe) + iva")    
+    BigDecimal importeTotal;    
 }

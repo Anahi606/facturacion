@@ -1,5 +1,7 @@
 package com.yourcompany.facturacion.modelo;
 
+import java.math.*;
+
 import javax.persistence.*;
 
 import org.openxava.annotations.*;
@@ -20,6 +22,9 @@ public class Producto {
             optional=true) // La referencia puede estar sin valor
         @DescriptionsList // Así la referencia se visualiza usando un combo
         Categoria categoria; // Una referencia Java convencional
+    
+    @Money // La propiedad precio se usa para almacenar dinero
+    BigDecimal precio; // BigDecimal se suele usar para dinero
     
     @ManyToOne(fetch=FetchType.LAZY)
     @DescriptionsList
