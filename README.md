@@ -44,7 +44,7 @@ git clone https://github.com/Anahi606/facturacion.git
 4. Accede a la aplicación desde tu navegador en http://localhost:8080/facturacion
 
 ## Estructura del Proyecto
-<img width="344" height="485" alt="image" src="https://github.com/user-attachments/assets/1e783067-3fdd-442d-9425-c7a1fd8acf85" />
+<img width="321" height="579" alt="image" src="https://github.com/user-attachments/assets/270f9161-75a6-4da9-894e-ac6b36c0fc37" />
 
 ## Créditos
 https://www.openxava.org/OpenXavaDoc/docs/index_es.html
